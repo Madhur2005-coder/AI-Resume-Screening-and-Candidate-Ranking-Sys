@@ -10,10 +10,10 @@ from services.skills import calculate_skill_gap, skills_to_text
 
 
 DEFAULT_WEIGHTS = {
-    "match_probability": 0.35,
-    "skill_match": 0.25,
+    "match_probability": 0.25,
+    "skill_match": 0.40,
     "screening_score": 0.25,
-    "role_confidence": 0.15,
+    "role_confidence": 0.10,
 }
 
 
@@ -38,11 +38,11 @@ class HybridRecommendation:
 
 
 def fit_level_from_score(score: float) -> str:
-    if score >= 85:
+    if score >= 72:
         return "Strong Fit"
-    if score >= 70:
+    if score >= 56:
         return "Good Fit"
-    if score >= 55:
+    if score >= 30:
         return "Moderate Fit"
     return "Weak Fit"
 
